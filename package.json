@@ -1,0 +1,22 @@
+{
+  "name": "natour",
+  "version": "1.0.0",
+  "description": "A landing webpage for a travel company natour",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Royalchampion/Natours.git"
+  },
+  "author": "Suraj Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Royalchampion/Natours/issues"
+  },
+  "homepage": "https://github.com/Royalchampion/Natours#readme",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
