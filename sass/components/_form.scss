@@ -1,0 +1,111 @@
+.form {
+    border: none;
+
+    // Used this line of css to get some border-padding excpet for the last input field.
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, 0.5);
+        border: none;
+        font-family: inherit;
+        border-bottom: 3px solid transparent;
+        width: 65%;
+        display: block;
+        transition: all 0.3s;
+
+        // We use focus pseudo class to get rid of blue border that comes on the screen whenever we click on the input field.
+        &:focus {
+            // Setting outline down to none get rid of blue border that appears automatically whenever we click on the input field.
+            outline: none;
+
+            // Setting box-shadow and border-bottom helps to bring shadow and bottom border effect whenever we click on the input field. 
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+            border-bottom: 3px solid $primary-color-dark;
+
+            // If characters entered in the input field is invalid then we use :focus:invalid pseudo class to denote another color in the background.
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;
+            }        
+        }
+
+        // To bring some changes in the input field.
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    // All these properties used in the __label class makes the text standout as we want.
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        transition: all 0.3s;
+    }
+
+    // Whenever we want to make some changes in the direct children html elements then we use '+' sign and just in case whenever there are multiple html elements in between then we use '~' sign. 
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 43.5%;
+        display: inline-block;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4.5rem;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__radio-button {
+        // To form the ring of green color.
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $primary-color;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -0.7rem;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $primary-color;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+        opacity: 1;
+    }
+}
