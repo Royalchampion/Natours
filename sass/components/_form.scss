@@ -20,6 +20,14 @@
         display: block;
         transition: all 0.3s;
 
+        @include respond(tab-port) {
+            width: 60%;
+        }
+
+        @include respond(phone) {
+            width: 60%;
+        }
+
         // We use focus pseudo class to get rid of blue border that comes on the screen whenever we click on the input field.
         &:focus {
             // Setting outline down to none get rid of blue border that appears automatically whenever we click on the input field.
@@ -61,6 +69,11 @@
     &__radio-group {
         width: 43.5%;
         display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {

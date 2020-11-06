@@ -7,9 +7,43 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%;  //1rem = 10px; 10px/16px = 62.5%
+
+    // These two approaches to write down media queries.
+    // First One
+    // @media (max-width: 600px) {
+    //     font-size: 50%;
+    // }
+
+    // Second One(Also see mixins, where this is implemented.)
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    // This is another alternative, Take a look at mixin program(Recommended)
+    // We are commenting down this code snippet bcoz tab-port is gonna overwrite phone code snippet, so there is no meaning.
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
+    @include respond(big-desktop) {
+        font-size: 75%;  //1rem = 12, 12/16
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%;  //1rem = 9px; 9/16 = 50%
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;  //1rem = 8px; 8/16 = 50%
+    }
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
