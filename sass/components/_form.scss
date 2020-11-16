@@ -7,6 +7,7 @@
     }
     
     &__input {
+        /*1. First, We write the CSS properties from line 11 to 17.*/ 
         font-size: 1.5rem;
         font-family: inherit;
         color: inherit;
@@ -15,6 +16,8 @@
         background-color: rgba($color-white, 0.5);
         border: none;
         font-family: inherit;
+
+        // 3. Now we write down the properties from 20 to 24.
         border-bottom: 3px solid transparent;
         width: 65%;
         display: block;
@@ -28,7 +31,7 @@
             width: 60%;
         }
 
-        // We use focus pseudo class to get rid of blue border that comes on the screen whenever we click on the input field.
+        //2. We use focus pseudo class to get rid of blue border that comes on the screen whenever we click on the input field.
         &:focus {
             // Setting outline down to none get rid of blue border that appears automatically whenever we click on the input field.
             outline: none;
@@ -43,13 +46,13 @@
             }        
         }
 
-        // To bring some changes in the input field.
+        //4. To bring some changes in the input field.
         &::-webkit-input-placeholder {
             color: $color-grey-dark-2;
         }
     }
 
-    // All these properties used in the __label class makes the text standout as we want.
+    //5. All these properties used in the __label class makes the text standout as we want.
     &__label {
         font-size: 1.2rem;
         font-weight: 700;
@@ -59,13 +62,14 @@
         transition: all 0.3s;
     }
 
-    // Whenever we want to make some changes in the direct children html elements then we use '+' sign and just in case whenever there are multiple html elements in between then we use '~' sign. 
+    //6. Whenever we want to make some changes in the direct children html elements then we use '+' sign and just in case whenever there are multiple html elements in between then we use '~' sign. 
     &__input:placeholder-shown + &__label {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-4rem);
     }
 
+    //7. To define the radio buttons inside the form group.
     &__radio-group {
         width: 43.5%;
         display: inline-block;
@@ -80,6 +84,7 @@
         display: none;
     }
 
+    // 8. To write the form label.
     &__radio-label {
         font-size: $default-font-size;
         cursor: pointer;
@@ -92,7 +97,7 @@
     }
 
     &__radio-button {
-        // To form the ring of green color.
+        //9. To form the ring of green color.
         height: 3rem;
         width: 3rem;
         border: 5px solid $primary-color;

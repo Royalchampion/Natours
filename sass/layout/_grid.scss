@@ -1,8 +1,13 @@
 .row {
+    /*1. We have chosen max-width over width bcoz no matter how much size we reduce of google chrome, It'll always show a fixed width(max-width) of the row.*/ 
     max-width: $grid-width;
+
+    /*We can assign row(A block element) to the center position using this strategy*/ 
     margin: 0 auto;
 
+    /*Every child except the last one*/ 
     &:not(:last-child) {
+        /*Here, We've defined horizontal gutter.*/ 
         margin-bottom: $gutter-vertical;
 
         @include respond(tab-port) {
@@ -15,8 +20,12 @@
         padding: 0 3rem;
     }
 
+    /*2. Since, we are using float: left property, the height of the row collapses. So, we'll use this clearfix hack.*/ 
     @include clearfix;
 
+    // '^=' : Starts with
+    // '*=' : Contains
+    // '$=' : Ends with 
     [class^='col-'] {
         float: left;
 

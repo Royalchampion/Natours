@@ -1,12 +1,14 @@
+/* This is the universal change we make in CSS. What it does is that it sets the whole margin and padding back to zero to start from the beginning. Also we do set the box-shadow to box-model which neglects the margin and padding from the height and width of the box-model. Thus, makes our task easier.*/
 *,
 *::after,
 *::before {
     margin: 0;
     padding: 0;
-    box-shadow: none;
+    box-sizing: inherit;
 }
 
 html {
+    /*Always remember that Google chrome default font-size is 16px. But, we want it to be 10px and we also want to keep it into percentage value bcoz we don't want to override default value set by the user.*/ 
     font-size: 62.5%;  //1rem = 10px; 10px/16px = 62.5%
 
     // These two approaches to write down media queries.
@@ -27,7 +29,7 @@ html {
     // }
 
     @include respond(big-desktop) {
-        font-size: 75%;  //1rem = 12, 12/16
+        font-size: 75%;  //1rem = 12px, 12/16 = 75%
     }
 
     @include respond(tab-land) {
@@ -41,6 +43,8 @@ html {
 
 body {
     box-sizing: border-box;
+
+    /*Setting up the padding of the entire body as a 3rem creates the white body around the whole border.*/ 
     padding: 3rem;
 
     @include respond(tab-port) {

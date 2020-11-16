@@ -2,12 +2,15 @@
     position: relative;
 
     &__photo {
+        /*7. The first four properties are the basic setup properties.*/ 
         width: 55%;
         box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
         border-radius: 2px;
         position: absolute;
         z-index: 10;
         transition: all 0.2s;
+
+        /*9. Now, there's a space between border and image.*/ 
         outline-offset: 2rem;
 
         @include respond(tab-port) {
@@ -17,6 +20,7 @@
             box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2); 
         }
 
+        /*Basic setup of images.*/ 
         &--p1 {
             left: 0;
             top: -2rem;
@@ -49,7 +53,9 @@
             }
         }
 
+        /*8. We'll provide hover effect for each respective images.*/ 
         &:hover {
+            /*Even if we have provided the following properties, there's no space between the green border and the image. So, take a look at the line number 12.*/ 
             outline: 1.5rem solid $primary-color-dark;
             transform: scale(1.05);
             box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
@@ -57,6 +63,7 @@
         }
     }
 
+    /*9. Whenever we hover over the image, the other two images go backwards.*/ 
     &:hover &__photo:not(:hover) {
         transform: scale(0.9);
     }

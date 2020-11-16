@@ -1,8 +1,9 @@
-
+/*Link, visited, active and hover(and many more), these are known as pseudo classes. pseudo classes are nothing but the special cases of html selectors.*/ 
 .btn {
     &,
     &:link,
     &:visited {
+        /*The first three properties convert the normal link to a button. Although, there is no space between these two element.So, We'll use display: inline-block; property to bring some space between these two elements.(Always use this strategy whenever you want to bring some space between two elements.)*/ 
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
@@ -17,19 +18,26 @@
         cursor: pointer;
     }
 
+    /*Hover means we are hovering over the button.*/ 
     &:hover {
+        /*We do set the transform: translateY(-0.3rem); So, Whenever we hover over the button, it turns itself up.*/ 
         transform: translateY(-0.3rem);
         box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
+        /*Since we want some action just after we do hover over the main element with .btn class.*/ 
+        /*Don't forget to refer .btn::after at line number 64.*/ 
         &::after {
+            /*Using scale as a transform property enhances the button as long as we hover over it.*/ 
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
     }
 
+    /*active means we have clicked the button.*/ 
     &:active,
     &:focus {
         outline: none;
+        /*transform: translateY(-0.1rem); means whenever we click on the button, It's turning itself down.*/ 
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
     }
@@ -52,12 +60,20 @@
         }
     }
 
+    /*after and before are the pseudo elements. */ 
     &::after {
+        /*In such cases, we set the content as ""*/ 
         content: "";
+
+        /*display should be inline-block bcoz the parent elements like .btn is also an inline-block.*/ 
         display: inline-block;
+
+        /*:after pseudo elements is treated as a child element. So, we do set the height and width 100% so the pseudo elements shall have the same dimension as its parent element.(Take a look at line number 13)*/ 
         height: 100%;
         width: 100%;
         border-radius: 10rem;
+
+        /*But, it appears below the main button. In order to move it behind the main button, we do set the below property and we do also set the display property as relative in its parent element i.e. element with .btn class*/ 
         position: absolute;
         top: 0;
         left: 0;
@@ -66,6 +82,7 @@
     }
 
     &--animated {
+        /*We're using this property so the animated button appears on the screen.*/ 
         animation: moveInBottom .5s ease-out .75s;
         animation-fill-mode: backwards;
     }

@@ -1,16 +1,23 @@
+/*Phase 1 : From line number 1 to 60.*/ 
 .card {
     // Functionality of the card
+    /*4. We are writing perspective: 150rem property, so we can make it feel like it's coming out towards you whenever we hover over the card.*/ 
     perspective: 150rem;
     -moz-perspective: 150rem;
+
+    /*Since, the height of the card collapses, so to get rid of that issue, we'll write another same height property and we'll also make this parent element's position relative.*/ 
     position: relative;
     height: 50rem;
 
-
     &__side {
+        /*2. First, We write the given below four properties as a basic setup.*/ 
         color: #fff;
         font-size: 2rem;
         height: 50rem;
         transition: all 0.8s;
+        /*After that, we go on to line number 48.*/ 
+        
+        /*5. Using the below property we're gonna align both front-card and back-card align together.*/ 
         position: absolute;
         top: 0;
         left: 0;
@@ -42,6 +49,8 @@
         }
     }
 
+    /*3. After writing hover effect, we write perspective for the very first parent element.
+    But, Before that We'll also take care of the program line number 26 and 31*/ 
     &:hover &__side--Front {
         transform: rotateY(-180deg);
     }
@@ -50,13 +59,21 @@
         transform: rotateY(0deg);
     }
 
-    // Styling of the front-end card
+    //6. Styling of the front-end card 
     &__picture {
         background-size: cover;
+
+        // setup the height of the card. 
         height: 23rem;
+
+        // Execute styling property on the image.
         background-blend-mode: screen;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        
+        /*We'll use the below both the properties only when we'll see that border property is not applied on the cards.*/ 
+        // border-top-left-radius: 3px;
+        // border-top-right-radius: 3px;
 
         &--1 {
             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
@@ -71,12 +88,15 @@
         }
     }
 
+    // 7. Styling of the card heading text takes play
     &__heading {
         font-size: 2.8rem;
         font-weight: 300;
         text-transform: uppercase;
         text-align: right;
         color: $color-white;
+
+        /*We use the below properties to align respectively for the requirement.*/ 
         position: absolute;
         top: 12rem;
         right: 2rem;
@@ -85,6 +105,7 @@
     }
 
     &__heading-span {
+        /*8. We provided padding but still the padding isn't available everywhere.*/ 
         padding: 1rem 1.5rem;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
@@ -105,6 +126,7 @@
         }
     }
 
+    /*9. Now, Use the below properties to style the detail elements.*/ 
     &__details {
         padding: 3rem;
         box-shadow: none;
@@ -127,6 +149,7 @@
         }
     }
 
+    // 10. Backside Styling
     &__cta {
         position: absolute;
         top: 50%;

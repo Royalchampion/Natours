@@ -1,10 +1,19 @@
 .header {
+    /*Using height as 95vh means that header element is covering the total of 95% of the viewport.*/
     height: 95vh;
+
+    /*To use image as a background image in your element, we do use background-image() and background-size:cover properties.*/ 
     background-image: linear-gradient(to right bottom, rgba($primary-color-light, 0.8),rgba($primary-color-dark, 0.8)), url(../img/hero.jpg);
     background-size: cover;
+
+    /*Using background position as top crops down the image while we reduce the width of the browser. We can also use bottom, center etc.*/ 
     background-position: top;
+
+    /*We use clip-path: polygon property to create the header element as a polygon shape.*/ 
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    /*So, we can position the logo with respect to this division. */ 
     position: relative;
 
     @include respond(phone) {
@@ -13,6 +22,7 @@
     }
 
     &__logo-box {
+        /*To set the logo back from its parent element, we set this property.(And we set the parent positioning to relative.) Using this method, we can position the logo with respect to its parent positions.*/ 
         position: absolute;
         top: 4rem;
         left: 4rem;

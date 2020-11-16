@@ -1,4 +1,5 @@
 body {
+    /*In case you're wondering why have we used font-weight as 400, Always remember that we have used the google fonts with different font-weight. 400 is one of them.*/
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     /* font-size: 16px; */
@@ -9,6 +10,7 @@ body {
 .heading-primary {
     color: $color-white;
     text-transform: uppercase;
+    /*We also have used backface-visibility: hidden; property in order to overcome the issue of shacking which occurs whenever we do use the animations.*/ 
     backface-visibility: hidden;
     margin-bottom: 6rem;
 
@@ -17,6 +19,7 @@ body {
         font-size: 6rem;
         font-weight: 400;
         letter-spacing: 3.5rem;
+        /*This is how we present animations. Now take a look at line no.40 of typography.scss*/ 
         animation-name: moveInLeft;
         animation-duration: 1.5s;
         animation-timing-function: ease;
@@ -34,6 +37,7 @@ body {
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 1.2rem;
+        // This is how we write animations in short form. This is preferred one. We can also use different animation-timing-function(Refer MDN Docs).
         animation: moveInRight 1.5s ease;
 
         @include respond(phone) {
@@ -43,13 +47,20 @@ body {
 }
 
 .heading-secondary {
+    /*2. The first three properties are the basic setup for the heading font.*/ 
     font-size: 3.5rem;
     text-transform: uppercase;
     font-weight: 700;
-    display: inline-block;
+
+    /*3. Now we do set the background property of the heading. Since, this is the block element, it covers the whole width of the section.*/ 
     background-image: linear-gradient(to right, $primary-color, $primary-color-light);
+
+    /*4. So, We do set it as an inline-block. Now it covers only the essential part. The rest two property helps to show the background color as a text-color.*/ 
+    display: inline-block;
     -webkit-background-clip: text;
     color: transparent;
+
+    // Basic
     letter-spacing: 0.2rem;
     transition: all 0.2s;
 
@@ -61,12 +72,15 @@ body {
         font-size: 2.5rem;
     }
 
+    /*5. We do set the hover effect.*/ 
     &:hover {
+        /*After translate and scale, skew is the third animation property we're seeing.*/ 
         transform: skewY(2deg) skewX(15deg) scale(1.1);
         text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
     }
 }
 
+/*6. We do set the heading tertiary with these basic commands.*/ 
 .heading-tertiary {
     font-size: 1.6rem;
     font-weight: 700;
@@ -80,3 +94,4 @@ body {
         margin-bottom: 3rem;
     }
 }
+/*Now, Refer composition.scss*/ 

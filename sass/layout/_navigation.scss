@@ -1,8 +1,10 @@
 .navigation {
+    // 3. We don't want to see this input.
     &__checkbox {
         display: none;
     }
 
+    // 2. Now, We'll write the button class woth the following properties.
     &__button {
         background-color: $color-white;
         height: 7rem;
@@ -27,6 +29,7 @@
         }
     }
 
+    // 1. First, We'll write the background class with the following properties.
     &__background {
         height: 6rem;
         width: 6rem;
@@ -50,6 +53,7 @@
         // transform: scale(80);
     }
 
+    // 4. Now, we'll write the following properties 
     &__nav {
         height: 100vh;
         width: 0;
@@ -61,6 +65,7 @@
         transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     }
 
+    // 5.Now We'll make the list align on the middle
     &__list {
         position: absolute;
         top: 50%;
@@ -74,6 +79,7 @@
         margin: 1rem;
     }
 
+    // 6. To make our navigation bar more fantastic.
     &__link {
         &:link,
         &:visited {

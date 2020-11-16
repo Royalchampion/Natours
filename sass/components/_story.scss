@@ -1,4 +1,5 @@
 .story {
+    /*1. First We'll write the basic property of the stoy container, from line 3 to 7.*/ 
     width: 75%;
     margin: 0 auto;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
@@ -26,17 +27,20 @@
     }
 
     &__shape {
+        /*2. Then we write the following properties as a second step.*/ 
         width: 15rem;
         height: 15rem;
         background-color: orangered;
         float: left;
         box-shadow: none;
         // We use the below property to align the text and shape with one another.
+        // For the property 'shape-outside' to work, we need to define the dimension and float property.
         -webkit-shape-outside: circle(50% at 50% 50%);
         shape-outside: circle(50% at 50% 50%);
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
         // To bring the space between two elements, Use transform property as long as one of them is using float property.
+        // The main reason we are using two properties at once, is bcoz if we apply the property number 25, it won't affect the styles. So, Intead of using that traditional method to undo the result, we're gonna use the property at line number 11 and 44. 
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
         overflow: hidden;
@@ -62,6 +66,7 @@
     }
 
     &__caption {
+        /*3. Now, to make the text visible we're gonna use the below property from the line number 70 to 77.*/ 
         position: absolute;
         top: 50%;
         left: 50%;
@@ -70,16 +75,22 @@
         text-transform: uppercase;
         font-size: 1.7rem;
         text-align: center;
+
+        /*First, the figure caption will be invisible as shown below in the properties.*/ 
         opacity: 0;
         transition: all 0.5s;
+
+        /*We'll use this property to get rid of glitch.*/ 
         backface-visibility: hidden;
     }
 
+    /*4. Now, We'll use the below property to make it visible.*/ 
     &:hover &__caption {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 
+    /*5. Now, We'll use the following property whenever we hover over the image.*/ 
     &:hover &__image {
         transform: translateX(-4rem) scale(1.1);
         filter: blur(3px) brightness(80%);

@@ -1,4 +1,5 @@
 .section-about {
+    /*1. First two properties are the basic setup of the about section while the last one is covering the margin and solving the whitespace issue that occurs right above about section.(Now, refer typography in base folder.)*/ 
     background-color: $color-grey-light-1;
     padding: 25rem 0;
     margin-top: -20vh;
@@ -8,19 +9,25 @@
     }
 }
 
+    /*1. The first three properties are the basic setup we apply to the section*/ 
 .section-feature {
     padding: 20rem 0;
     background-image: linear-gradient(to right bottom, rgba($primary-color-light, 0.8),rgba($primary-color-dark, 0.8)), url(../img/nat-4.jpg);
     background-size: cover;
+
+    /*Now refer to the feature-box section in components.
+    5. To perform the skew transformation and cover the whitespace, we use the two below property.*/ 
     transform: skewY(-7deg);
     margin-top: -10rem;
 
+    /*And finally perform the below code to undo all the changes we made in the previous operation*/ 
     // Selects all the direct children of the parent element.
     & > * {
         transform: skewY(7deg);
     }
 }
 
+/*Basic Setup*/ 
 .section-tours {
     background-color: $color-grey-light-1;
     padding: 25rem 0;
@@ -32,6 +39,7 @@
     }
 }
 
+/*Basic Setup*/ 
 .section-stories {
     padding: 15rem 0;
     position: relative;
@@ -41,6 +49,7 @@
     }
 }
 
+/*Basic Setup for form*/ 
 .section-book {
     padding: 15rem;
     background-image: linear-gradient(to right bottom, $primary-color-dark, $primary-color);
